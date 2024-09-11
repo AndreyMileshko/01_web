@@ -43,7 +43,7 @@ public class RequestHandler {
                 return;
             }
 
-            final var filePath = Path.of("C:\\Users\\andre\\Desktop\\", "public", path); // TODO
+            final var filePath = Path.of(".", "public", path);
             final var mimeType = Files.probeContentType(filePath);
 
             // special case for classic
