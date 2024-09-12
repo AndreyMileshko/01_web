@@ -1,4 +1,4 @@
-package ru.netology;
+package ru.netology.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static ru.netology.RequestHandler.*;
+import static ru.netology.server.RequestHandler.*;
 
 public class Server {
 
@@ -35,7 +35,7 @@ public class Server {
 
     public void addHandler(String method, String path, Handler handler) {
         handlers.put(method, new HashMap<>());
-
+        handlers.get(method).put(path, handler);
     }
 
     public void setCont(boolean cont) {

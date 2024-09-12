@@ -1,4 +1,4 @@
-package ru.netology;
+package ru.netology.server;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -43,7 +43,7 @@ public class RequestHandler {
                 return;
             }
 
-            final var filePath = Path.of(".", "public", path);
+            final var filePath = Path.of("C:\\Users\\andre\\Desktop", "public", path);
             final var mimeType = Files.probeContentType(filePath);
 
             // special case for classic
