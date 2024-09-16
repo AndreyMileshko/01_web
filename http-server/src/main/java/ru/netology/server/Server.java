@@ -12,10 +12,12 @@ import static ru.netology.server.RequestHandler.*;
 
 public class Server {
 
-    private final Map<String, Map<String, Handler>> handlers = new HashMap<>();
+    private static final Map<String, Map<String, Handler>> handlers = new HashMap<>();
     private final int port;
     private final ExecutorService threadPool;
     private boolean cont = true;
+
+
 
     public Server(int port, int threadPoolSize) {
         this.port = port;
@@ -40,5 +42,8 @@ public class Server {
 
     public void setCont(boolean cont) {
         this.cont = cont;
+    }
+    public static Map<String, Map<String, Handler>> getHandlers() {
+        return handlers;
     }
 }

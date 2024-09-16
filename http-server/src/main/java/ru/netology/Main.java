@@ -13,12 +13,12 @@ public class Main {
     server.addHandler("GET", "/message", new Handler() {
       @Override
       public void handle(Request request, BufferedOutputStream responseStream) {
-
+        System.out.println("Мы в хэндлере метода GET и пути /message");
       }
     });
     server.addHandler("POST", "/messages", new Handler() {
       public void handle(Request request, BufferedOutputStream responseStream) {
-
+        System.out.println("Мы в хэндлере метода POST и пути /message");
       }
     });
 
