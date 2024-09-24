@@ -23,7 +23,7 @@ public class Server {
         try (final ServerSocket serverSocket = new ServerSocket(port)) {
             while (isContinue) {
                 final Socket socket = serverSocket.accept();
-                threadPool.submit(() -> RequestHandler.requestHandling(socket, handlers));
+                threadPool.submit(() -> RequestHandler.requestHandle(socket, handlers));
             }
             threadPool.shutdown();
         } catch (IOException e) {

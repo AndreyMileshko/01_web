@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         Server server = new Server(8080, 64);
 
-        server.addHandler("GET", "/message", (request, responseStream)
+        server.addHandler("GET", "/messages", (request, responseStream)
                 -> {
             String responseBody = "Hello from message endpoint!";
             responseStream.write((
@@ -33,7 +33,7 @@ public class Main {
     }
 
     public static void handleFile(Request request, BufferedOutputStream responseStream) throws IOException {
-        final Path filePath = Path.of(".", "public", request.getPath());           //C:\Users\andre\Desktop
+        final Path filePath = Path.of("C:\\Users\\andre\\Desktop", "public", request.getPath());           //   C:\Users\andre\Desktop
         final String mimeType = Files.probeContentType(filePath);
 
         final long length = Files.size(filePath);

@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class RequestHandler {
 
-    public static void requestHandling(Socket socket, ConcurrentHashMap<String, ConcurrentHashMap<String, Handler>> handlers) {
+    public static void requestHandle(Socket socket, ConcurrentHashMap<String, ConcurrentHashMap<String, Handler>> handlers) {
         try (socket;
              final BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
              final BufferedOutputStream out = new BufferedOutputStream(socket.getOutputStream())) {
@@ -24,8 +24,8 @@ public class RequestHandler {
                 HttpErrorMessage.notFound(out);
                 return;
             }
-            ConcurrentHashMap<String, Handler> handlerMap = handlers.get(request.getMethod());
 
+            ConcurrentHashMap<String, Handler> handlerMap = handlers.get(request.getMethod());
             if (!handlerMap.containsKey(request.getPath())) {
                 HttpErrorMessage.notFound(out);
                 return;
